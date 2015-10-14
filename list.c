@@ -42,6 +42,12 @@ song_node * find_artist(song_node * front, char * artistName) {
 	return find_artist(front->next,artistName);
 }
 
+song_node * random_song(song_node * front) {
+	//how to find size of linked list....
+	//how to find random number
+	return front;
+}
+
 song_node * free_list(song_node * front) {
 	if (front->next != 0) 
 		front->next = free_list(front->next);
