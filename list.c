@@ -14,7 +14,17 @@ song_node * insert_front(song_node * front, char * songName, char * artistName) 
 	song_node * newNode = (song_node *)malloc(sizeof(song_node));
 	strcpy(newNode->name, songName);
 	strcpy(newNode->artist, artistName);
+	newNode->next = front;
 	return newNode;
+}
+
+song_node * insert(song_node * front, char * songName, char * artistName) {
+	//idk what it means by in order
+	return front;
+}
+
+song_node * find_song(song_node * front, char * songName) {
+	
 }
 
 song_node * free_list(song_node * front) {

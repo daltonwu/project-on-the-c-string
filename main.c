@@ -4,7 +4,7 @@
 #include "list.h"
 
 int main() {
-	
+
 	/*
 	printf("\n");
 	node * myNode = (node *)malloc(sizeof(node));
@@ -30,8 +30,13 @@ int main() {
 */
 
 	song_node * table[26];
+	printf("\nempty table\n");
 	print_list(table[0]);
 	table[0] = insert_front(table[0],"too much heavens", "bee gees");
+	printf("\nadded one song\n");
+	print_list(table[0]);
+	table[0] = insert_front(table[0],"staying alive", "bee gees");
+	printf("\ninsert front\n");
 	print_list(table[0]);
 	return 0;
 }
