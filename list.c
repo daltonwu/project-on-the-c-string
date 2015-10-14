@@ -31,12 +31,15 @@ song_node * insert(song_node * front, char * songName, char * artistName) {
 }
 
 song_node * find_song(song_node * front, char * songName) {
-	if (!front||!strcmp(front->name,songName)) {
+	if (!front||!strcmp(front->name,songName))
 		return front;
-	}
-	/*if (strcmp(front->name,songName))
-		return front;*/
 	return find_song(front->next,songName);
+}
+
+song_node * find_artist(song_node * front, char * artistName) {
+	if (!front||!strcmp(front->artist,artistName))
+		return front;
+	return find_artist(front->next,artistName);
 }
 
 song_node * free_list(song_node * front) {

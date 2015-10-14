@@ -39,7 +39,8 @@ int main() {
 	print_list(table[0]);
 
 	table[0] = insert_front(table[0],"staying alive", "bee gees");
-	table[0] = insert_front(table[0],"blank space", "taylor swift");
+	table[0] = insert_front(table[0],"violin concerto", "mozart");
+	table[0] = insert_front(table[0],"piano concerto", "mozart");
 	table[0] = insert_front(table[0],"wildest dreams", "taylor swift");
 	printf("\ninsert front\n");
 	print_list(table[0]);
@@ -49,15 +50,27 @@ int main() {
 	song_search = find_song(table[0],"staying alive");
 	print_node(song_search);
 	printf("\n");
-	song_search = find_song(table[0],"wildest dreams");
+	song_search = find_song(table[0],"blank space");
 	print_node(song_search);
 	printf("\n");
 	song_search = find_song(table[0],"blank spacee");
 	print_node(song_search);
 	printf("\n");
-	song_search = find_song(table[0],"does not exist");
-	print_node(song_search);
+
+	printf("\nfinding artist\n");
+	song_node * artist_search;
+	artist_search = find_artist(table[0],"bee gees");
+	print_node(artist_search);
 	printf("\n");
+	artist_search = find_artist(table[0],"mozart"); //piano 
+	print_node(artist_search);
+	printf("\n");
+	artist_search = find_artist(table[0],"taylor svift");
+	print_node(artist_search);
+	printf("\n");
+
+
+
 
 	return 0;
 }
