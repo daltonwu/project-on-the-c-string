@@ -46,12 +46,7 @@ int main() {
 
 	printf("\nfinding songs\n");
 	song_node * song_search;
-	print_node(song_search);
-	printf("\n");
 	song_search = find_song(table[0],"staying alive");
-	print_node(song_search);
-	printf("\n");
-	song_search = find_song(table[0],"too much heavens");
 	print_node(song_search);
 	printf("\n");
 	song_search = find_song(table[0],"wildest dreams");
