@@ -10,6 +10,13 @@ void print_list(song_node * front) {
 	}
 }
 
+void print_node(song_node * front) {
+	if (front)
+		printf("%s -- %s\n", front->artist, front->name);
+	else 
+		printf("nothing to see here...\n");
+}
+
 song_node * insert_front(song_node * front, char * songName, char * artistName) {
 	song_node * newNode = (song_node *)malloc(sizeof(song_node));
 	strcpy(newNode->name, songName);
@@ -24,7 +31,12 @@ song_node * insert(song_node * front, char * songName, char * artistName) {
 }
 
 song_node * find_song(song_node * front, char * songName) {
-	
+	if (!front||!strcmp(front->name,songName)) {
+		return front;
+	}
+	/*if (strcmp(front->name,songName))
+		return front;*/
+	return find_song(front->next,songName);
 }
 
 song_node * free_list(song_node * front) {

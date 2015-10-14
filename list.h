@@ -10,6 +10,8 @@ song_node * insert(song_node * front, char * songName, char * artistName);
 
 void print_list(song_node * front);
 
+void print_node(song_node * front);
+
 song_node * find_song(song_node * front, char * songName);
 
 song_node * find_artist(song_node * front, char * artistName);
