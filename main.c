@@ -7,7 +7,7 @@ int main() {
 
 	/*
 	printf("\n");
-	node * myNode = (node *)malloc(sizeof(node));
+	node *myNode = (node *)malloc(sizeof(node));
 	myNode->data = 0;
 
 	printf("Initialize one node.\n");
@@ -29,7 +29,7 @@ int main() {
 
 */
 
-	song_node * table[26];
+	song_node *table[26];
 
 	printf("\nempty table\n");
 	print_list(table[0]);
@@ -46,7 +46,7 @@ int main() {
 	print_list(table[0]);
 
 	printf("\nfinding songs\n");
-	song_node * song_search;
+	song_node *song_search;
 	song_search = find_song(table[0],"staying alive");
 	print_node(song_search);
 	printf("\n");
@@ -58,14 +58,14 @@ int main() {
 	printf("\n");
 
 	printf("\nfinding artist\n");
-	song_node * artist_search;
+	song_node *artist_search;
 	artist_search = find_artist(table[0],"bee gees");
 	print_node(artist_search);
 	printf("\n");
 	artist_search = find_artist(table[0],"mozart"); //piano 
 	print_node(artist_search);
 	printf("\n");
-	artist_search = find_artist(table[0],"taylor svift");
+	artist_search = find_artist(table[0],"taylor slow");
 	print_node(artist_search);
 	printf("\n");
 

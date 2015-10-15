@@ -7,8 +7,8 @@ main.o: main.c
 list.o: list.c
 	gcc -c list.c
 
-run: tunez
-	./tunez
+run: tunez.out
+	./tunez.out
 
 clean:
 	rm *.o

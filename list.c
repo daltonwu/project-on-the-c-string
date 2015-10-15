@@ -19,37 +19,38 @@ void print_node(song_node *front) {
 	}
 }
 
-song_node *insert_front(song_node *front, char *songName, char *artistName) {
-	song_node *newNode = (song_node *) malloc(sizeof(song_node));
+song_node *insert_front(song_node *front, char *song_name, char *artist_name) {
+	song_node *new = (song_node *) malloc(sizeof(song_node));
 	
-	strcpy(newNode->name, songName);
-	strcpy(newNode->artist, artistName);
-	newNode->next = front;
+	strcpy(new->name, song_name);
+	strcpy(new->artist, artist_name);
+	new->next = front;
 	
-	return newNode;
+	return new;
 }
 
-song_node *insert(song_node *front, char *songName, char *artistName) {
+song_node *insert(song_node *front, char *song_name, char *artist_name) {
 	// idk what it means by in order
 	// let's find the place and then use insert_front
+	
 	return front;
 }
 
-song_node *find_song(song_node *front, char *songName) {
-	if(!front || !strcmp(front->name, songName)) {
+song_node *find_song(song_node *front, char *song_name) {
+	if(!front || !strcasecmp(front->name, song_name)) {
 		return front;
 	}
 	else {
-		return find_song(front->next, songName);
+		return find_song(front->next, song_name);
 	}
 }
 
-song_node *find_artist(song_node *front, char * artistName) {
-	if(!front || !strcmp(front->artist, artistName)) {
+song_node *find_artist(song_node *front, char * artist_name) {
+	if(!front || !strcasecmp(front->artist, artist_name)) {
 		return front;
 	}
 	else {
-		return find_artist(front->next, artistName);
+		return find_artist(front->next, artist_name);
 	}
 }
 
