@@ -30,6 +30,7 @@ int main() {
 */
 
 	song_node *table[26];
+	table[0] = (*song_node)malloc(sizeof(song_node)); //what if i malloc it...
 
 	printf("\nempty table\n");
 	print_list(table[0]);
