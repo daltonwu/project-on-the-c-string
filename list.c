@@ -62,6 +62,19 @@ song_node *random_song(song_node *front) {
 	return front;
 }
 
+song_node *remove_song(song_node *front, char *song_name) {
+	if (front) {
+		if (!strcasecmp(front->name,song_name)) {
+			song_node * tmp = front->next;
+			free(front);
+			return tmp;
+		}
+		else
+			front->next = remove_song(front->next,song_name);
+	}
+	return front;
+}
+
 song_node *free_list(song_node *front) {
 	if(front->next) {
 		front->next = free_list(front->next);

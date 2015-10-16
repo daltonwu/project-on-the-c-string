@@ -47,8 +47,15 @@ int main() {
 	print_node(artist_search);
 	printf("\n");
 
+	printf("\nremoving songs\n");
+	table[0] = remove_song(table[0], "violin concerto");
+	table[0] = remove_song(table[0], "too much heavens");
+	table[0] = remove_song(table[0], "rick roll");
+	print_list(table[0]);
 
-
+	printf("\nemancipation\n");
+	table[0] = free_list(table[0]);
+	print_list(table[0]);
 
 	return 0;
 }
