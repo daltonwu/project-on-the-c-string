@@ -17,6 +17,8 @@
 	song_node *find_song(song_node *front, char *song_name);
 	
 	song_node *find_artist(song_node *front, char *artist_name);
+
+	int length(song_node *front);
 	
 	song_node *random_song(song_node *front);
 	

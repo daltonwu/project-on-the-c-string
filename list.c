@@ -56,9 +56,21 @@ song_node *find_artist(song_node *front, char * artist_name) {
 		return find_artist(front->next, artist_name);
 }
 
+int length(song_node *front) {
+	int count = 0;
+	if (front)
+		count += length(front->next)+1;
+	return count;
+}
+
 song_node *random_song(song_node *front) {
-	//how to find size of linked list....
-	//how to find random number
+	int size = length(front);
+	srand(time(NULL)); //idk how this works DX
+	int index = rand() % size;
+	while (size--!=index+1) {
+		//printf("size: %d, index: %d\n", size, index);
+		front = front->next;
+	}
 	return front;
 }
 
