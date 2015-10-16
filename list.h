@@ -28,5 +28,19 @@
 	
 	void add_song(char *song_name, char *artist_name);
 	
+	song_node *song_search(char *song_name);
 	
+	song_node *artist_search(char *artist_name);
+	
+	void printl(char letter);
+	
+	void printa(char *artist_name);
+	
+	void printall();
+	
+	void shuffle();
+	
+	void del_song(char *song_name, char *artist_name);
+	
+	void del_all(); // DROP table;
 #endif
