@@ -25,4 +25,8 @@
 	song_node *remove_song(song_node *front, char *song_name);
 	
 	song_node *free_list(song_node *front);
+	
+	void add_song(char *song_name, char *artist_name);
+	
+	
 #endif

@@ -3,6 +3,8 @@
 #include <string.h>
 #include "list.h"
 
+// O say can you C
+
 void print_list(song_node *front) {
 	if(front) { 
 		printf("%s — %s\n", front->artist, front->name);
@@ -26,13 +28,13 @@ song_node *insert_front(song_node *front, char *song_name, char *artist_name) {
 }
 
 song_node *insert(song_node *front, char *song_name, char *artist_name) {
-	if (!front) { //last song in list
+	if(!front) { //last song in list
 		song_node *new = (song_node *)malloc(sizeof(song_node));
 		strcpy(new->name, song_name);
 		strcpy(new->artist, artist_name);
 		return new;
 	}
-	else if (strcasecmp(front->artist, artist_name) < 0) { //after front
+	else if(strcasecmp(front->artist, artist_name) < 0) { //after front
 		front->next = insert(front->next, song_name,artist_name);
 		return front;
 	}
