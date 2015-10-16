@@ -11,12 +11,10 @@ void print_list(song_node *front) {
 }
 
 void print_node(song_node *front) {
-	if(front) {
+	if(front)
 		printf("%s — %s\n", front->artist, front->name);
-	}
-	else {
+	else 
 		printf("nothing to see here …\n");
-	}
 }
 
 song_node *insert_front(song_node *front, char *song_name, char *artist_name) {
@@ -24,7 +22,6 @@ song_node *insert_front(song_node *front, char *song_name, char *artist_name) {
 	strcpy(new->name, song_name);
 	strcpy(new->artist, artist_name);
 	new->next = front;
-	
 	return new;
 }
 
@@ -46,21 +43,17 @@ song_node *insert(song_node *front, char *song_name, char *artist_name) {
 }
 
 song_node *find_song(song_node *front, char *song_name) {
-	if(!front || !strcasecmp(front->name, song_name)) {
+	if(!front || !strcasecmp(front->name, song_name)) 
 		return front;
-	}
-	else {
+	else 
 		return find_song(front->next, song_name);
-	}
 }
 
 song_node *find_artist(song_node *front, char * artist_name) {
-	if(!front || !strcasecmp(front->artist, artist_name)) {
+	if(!front || !strcasecmp(front->artist, artist_name))
 		return front;
-	}
-	else {
+	else 
 		return find_artist(front->next, artist_name);
-	}
 }
 
 song_node *random_song(song_node *front) {
