@@ -96,3 +96,14 @@ song_node *free_list(song_node *front) {
 	free(front);
 	return NULL;
 }
+
+void add_song(song_node *table, char *song_name, char *artist_name) {
+	song_node *front = table[*artist_name - 'a'];
+	
+	while(front && strcasecmp(front->name, artist_name) < 0) {
+		front = front->next;
+	}
+	
+	song_node *new;
+	new->name
+}
