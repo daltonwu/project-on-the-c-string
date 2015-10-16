@@ -12,15 +12,15 @@ int main() {
 	print_list(table[0]);
 */
 	
-	table[0] = insert_front(table[0],"piano concerto", "mozart");
+	table[0] = insert_front(table[0],"piano concerto no.2, op.18", "rachmaninoff");
 /*	printf("\ninsert one song to front\n");
 	print_list(table[0]);
 */	
 
 	table[0] = insert(table[0],"wildest dreams", "taylor swift");
 	table[0] = insert(table[0],"staying alive", "bee gees");
-	table[0] = insert(table[0],"too much heavens", "bee gees");
-	table[0] = insert(table[0],"violin concerto", "mozart");
+	table[0] = insert(table[0],"too much heaven", "bee gees");
+	table[0] = insert(table[0],"violin sonata in g minor, d.408", "schubert");
 	printf("\ninsert songs in artist name order\n");
 	print_list(table[0]);
 /*
@@ -49,13 +49,10 @@ int main() {
 	printf("\n");
 */
 	printf("\nrandom node??? WHY IS IT THE SAME THING\n");
-	song_node *random_node;
-	random_node = random_song(table[0]);
-	print_node(random_node);
-	random_node = random_song(table[0]);
-	print_node(random_node);
-	random_node = random_song(table[0]);
-	print_node(random_node);
+	srand(time(NULL));
+	print_node(random_song(table[0]));
+	print_node(random_song(table[0]));
+	print_node(random_song(table[0]));
 
 /*
 	printf("\nremoving songs\n");
@@ -64,7 +61,7 @@ int main() {
 	table[0] = remove_song(table[0], "rick roll");
 	print_list(table[0]);
 */
-	printf("\nemancipation\n");
+	printf("\nemancipation‼\n");
 	table[0] = free_list(table[0]);
 	print_list(table[0]);
 

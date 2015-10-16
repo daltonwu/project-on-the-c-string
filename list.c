@@ -65,10 +65,10 @@ int length(song_node *front) {
 
 song_node *random_song(song_node *front) {
 	int size = length(front);
-	srand(time(NULL)); //idk how this works DX
-	int index = rand() % size;
-	while (size--!=index+1) {
-		//printf("size: %d, index: %d\n", size, index);
+	
+	int i = rand() % size;
+	printf("%d\n", i);
+	while(i--) {
 		front = front->next;
 	}
 	return front;
