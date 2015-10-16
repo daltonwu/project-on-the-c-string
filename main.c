@@ -7,15 +7,15 @@ int main() {
 	song_node *table[26];
 	table[0] = (song_node*)malloc(sizeof(song_node)); //what if i malloc it...
 	table[0] = 0;
-
+/*
 	printf("\nempty table\n");
 	print_list(table[0]);
-
+*/
 	
 	table[0] = insert_front(table[0],"piano concerto", "mozart");
-	printf("\ninsert one song to front\n");
+/*	printf("\ninsert one song to front\n");
 	print_list(table[0]);
-	
+*/	
 
 	table[0] = insert(table[0],"wildest dreams", "taylor swift");
 	table[0] = insert(table[0],"staying alive", "bee gees");
@@ -48,7 +48,7 @@ int main() {
 	print_node(artist_search);
 	printf("\n");
 */
-	printf("\nrandom node\n");
+	printf("\nrandom node??? WHY IS IT THE SAME THING\n");
 	song_node *random_node;
 	random_node = random_song(table[0]);
 	print_node(random_node);
