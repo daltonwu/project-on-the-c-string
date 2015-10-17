@@ -25,6 +25,8 @@
 	song_node *remove_song(song_node *front, char *song_name);
 	
 	song_node *free_list(song_node *front);
+
+	char * str_lower(char * input);
 	
 	void add_song(song_node *table[]);
 	
@@ -32,7 +34,7 @@
 	
 	song_node *artist_search(char *artist_name);
 	
-	void printl(char letter);
+	void printl(song_node *song_table[]);
 	
 	void printa(char *artist_name);
 	

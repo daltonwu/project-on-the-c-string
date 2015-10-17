@@ -11,12 +11,13 @@ int main() {
 		table[table_ini] = 0;
 	}
 
-/*
+
 	add_song(table);
 	add_song(table);
-	print_list(table[0]);
-	print_list(table[1]);
-*/
+	add_song(table);
+	//print_list(table[0]);
+	//print_list(table[1]);
+	printl(table);
 
 /*
 	printf("\nempty table\n");
