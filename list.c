@@ -3,7 +3,8 @@
 #include <string.h>
 #include "list.h"
 
-// O say can you C
+// O say can you C 
+//.......dalton plz
 
 void print_list(song_node *front) {
 	if(front) { 
@@ -45,14 +46,14 @@ song_node *insert(song_node *front, char *song_name, char *artist_name) {
 }
 
 song_node *find_song(song_node *front, char *song_name) {
-	if(!front || !strcasecmp(front->name, song_name)) 
+	if(!front || !strncmp(front->name, song_name, strlen(song_name))) 
 		return front;
 	else 
 		return find_song(front->next, song_name);
 }
 
 song_node *find_artist(song_node *front, char * artist_name) {
-	if(!front || !strcasecmp(front->artist, artist_name))
+	if(!front || !strncmp(front->artist, artist_name, strlen(artist_name)))
 		return front;
 	else 
 		return find_artist(front->next, artist_name);
@@ -120,14 +121,49 @@ void printl(song_node *song_table[]) {
 	print_list(song_table[tolower(*input) - 'a']);
 }
 
+
+void *song_search(song_node *song_table[]) {
+	char input[256];
+	printf("Song name: \n");
+	scanf(" %[^\n]s", input);
+	char * song_name = str_lower(input);
+	int i = 0;
+	song_node * front = song_table[i];
+	while (i<26) {
+		while (front) {
+			front = find_song(front, song_name);
+			if (front&&i<26) {
+				print_node(front);
+				front = front->next;
+			}
+		}
+		front = song_table[++i];
+	}
+}
+
+/*
+song_node *song_search_helper(song_node *song_table[], char * song_name) {
+	int i = 0;
+	song_node * front = song_table[i];
+	while (i<26&&!find_song(front, song_name))
+		front = song_table[(++i)%26];
+	return find_song(front, song_name);
+}
+*/
+
+song_node *artist_search(song_node *song_table[], char *artist_name) {
+	song_node * front = song_table[*artist_name - 'a'];
+	front = find_artist(front, artist_name);
+	return front;
+}
+
 void printa(song_node *song_table[]) {
 	char input[256];
 	printf("Artist name: \n");
 	scanf(" %[^\n]s", input);
 	char * artist_name = str_lower(input);
-	song_node * front = song_table[*artist_name - 'a'];
-	front = find_artist(front, artist_name);
-	while (front && !strcmp(front->artist,artist_name)) {
+	song_node * front = artist_search(song_table, artist_name);
+	while (front && !strncmp(front->artist,artist_name,strlen(artist_name))) {
 		print_node(front);
 		front = front->next;
 	}
@@ -173,7 +209,7 @@ void shuffle(song_node *song_table[]) {
 }
 
 void del_song(song_node *song_table[]) {
-	
+
 }
 
 void del_all(song_node *song_table[]) {
@@ -197,8 +233,8 @@ void preload(song_node *song_table[]) { //15 more suggestions?
 	song_table['l'-'a'] = insert(song_table['l'-'a'],"royals","lorde");
 	song_table['e'-'a'] = insert(song_table['e'-'a'],"ecstacy of gold","ennio morricone");
 	song_table['m'-'a'] = insert(song_table['m'-'a'],"payphone","maroon 5");
-	song_table['k'-'a'] = insert(song_table['k'-'a'],"firework","katy perry");
 	song_table['i'-'a'] = insert(song_table['i'-'a'],"let it go","idina menzel");
+	song_table['z'-'a'] = insert(song_table['z'-'a'],"the end","ze end");
 /*	song_table[''-'a'] = insert(song_table[''-'a'],"","");
 	song_table[''-'a'] = insert(song_table[''-'a'],"","");
 	song_table[''-'a'] = insert(song_table[''-'a'],"","");

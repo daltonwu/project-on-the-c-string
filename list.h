@@ -32,9 +32,11 @@
 	
 	void add_song(song_node *song_table[]);
 	
-	song_node *song_search(char *song_name); //not done
+	void *song_search(song_node *song_table[]);
+
+	song_node *song_search_helper(song_node *song_table[], char * song_name);
 	
-	song_node *artist_search(char *artist_name); //not done
+	song_node *artist_search(song_node *song_table[], char *artist_name);
 	
 	void printl(song_node *song_table[]);
 	
@@ -50,7 +52,5 @@
 #endif
 
 /*  STUFF NEED TO DO
-Search for a song.
-Search for an artist.
 Delete a song
 */
