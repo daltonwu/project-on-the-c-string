@@ -46,11 +46,7 @@
 	
 	void shuffle(song_node *song_table[]); 
 	
-	void del_song(song_node *song_table[]); //not done
+	void del_song(song_node *song_table[]); 
 	
 	void del_all(song_node *song_table[]); 
 #endif
-
-/*  STUFF NEED TO DO
-Delete a song
-*/

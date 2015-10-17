@@ -77,7 +77,7 @@ song_node *random_song(song_node *front) {
 
 song_node *remove_song(song_node *front, char *song_name) {
 	if (front) {
-		if (!strcasecmp(front->name,song_name)) {
+		if (!strcmp(front->name,song_name)) {
 			song_node * tmp = front->next;
 			free(front);
 			return tmp;
@@ -141,16 +141,6 @@ void *song_search(song_node *song_table[]) {
 	}
 }
 
-/*
-song_node *song_search_helper(song_node *song_table[], char * song_name) {
-	int i = 0;
-	song_node * front = song_table[i];
-	while (i<26&&!find_song(front, song_name))
-		front = song_table[(++i)%26];
-	return find_song(front, song_name);
-}
-*/
-
 song_node *artist_search(song_node *song_table[], char *artist_name) {
 	song_node * front = song_table[*artist_name - 'a'];
 	front = find_artist(front, artist_name);
@@ -209,7 +199,13 @@ void shuffle(song_node *song_table[]) {
 }
 
 void del_song(song_node *song_table[]) {
-
+	char input[256];
+	printf("Song name: \n");
+	scanf(" %[^\n]s", input);
+	char * song_name = str_lower(input);
+	int i = 26;
+	while (i--)
+		song_table[i] = remove_song(song_table[i],song_name);
 }
 
 void del_all(song_node *song_table[]) {

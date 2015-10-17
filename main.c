@@ -26,8 +26,12 @@ int main() {
 	//print_list(table[1]);
 	//printl(table);
 	printall(table);
-	song_search(table);
-	printa(table);
+	// del_song(table);
+	// del_song(table);
+	// del_song(table);
+	// printall(table);
+	//song_search(table);
+	//printa(table);
 	// shuffle(table);
 	// shuffle(table);
 	// shuffle(table);
