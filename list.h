@@ -30,19 +30,29 @@
 	
 	void add_song(song_node *table[]);
 	
-	song_node *song_search(char *song_name);
+	song_node *song_search(char *song_name); //not done
 	
-	song_node *artist_search(char *artist_name);
+	song_node *artist_search(char *artist_name); //not done
 	
 	void printl(song_node *song_table[]);
 	
-	void printa(char *artist_name);
+	void printa(song_node *song_table[]);
 	
-	void printall();
+	void printall(); //not done
 	
-	void shuffle();
+	void shuffle(); //not done
 	
-	void del_song(char *song_name, char *artist_name);
+	void del_song(char *song_name, char *artist_name); //not done
 	
-	void del_all(); // DROP table;
+	void del_all(); // DROP table; //not done
 #endif
+
+/*  STUFF NEED TO DO
+Search for a song.
+Search for an artist.
+Print out all the songs of a certain artist
+Print out the entire library.
+Shuffle - print out a series of randomly chosen songs.
+Delete a song
+Delete all the nodes.
+*/

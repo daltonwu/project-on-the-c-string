@@ -106,10 +106,10 @@ char * str_lower(char * input) { //converts to lowercase
 void add_song(song_node * song_table[]) {
 	char song_name[256];
 	char artist_name[256];
-	printf("\nsong name: \n");
+	printf("\nSong name: \n");
 	scanf(" %[^\n]s",song_name); //reads space in string. source: stackoverflow
-	printf("\nartist name: \n");
-	scanf(" %[^\n]s",artist_name); //reads space in string. source: stackoverflow
+	printf("\nArtist name: \n");
+	scanf(" %[^\n]s",artist_name);
 	song_table[*artist_name - 'a'] = insert(song_table[*artist_name - 'a'],str_lower(song_name),str_lower(artist_name));
 }
 
@@ -118,4 +118,17 @@ void printl(song_node *song_table[]) {
 	printf("Letter: \n");
 	scanf("%s",input);
 	print_list(song_table[tolower(*input) - 'a']);
+}
+
+void printa(song_node *song_table[]) {
+	char input[256];
+	printf("Artist name: \n");
+	scanf(" %[^\n]s", input);
+	char * artist_name = str_lower(input);
+	song_node * front = song_table[*artist_name - 'a'];
+	front = find_artist(front, artist_name);
+	while (front && !strcmp(front->artist,artist_name)) {
+		print_node(front);
+		front = front->next;
+	}
 }

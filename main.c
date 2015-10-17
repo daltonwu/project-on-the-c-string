@@ -17,7 +17,8 @@ int main() {
 	add_song(table);
 	//print_list(table[0]);
 	//print_list(table[1]);
-	printl(table);
+	//printl(table);
+	printa(table);
 
 /*
 	printf("\nempty table\n");
