@@ -38,7 +38,7 @@
 	
 	void printa(song_node *song_table[]);
 	
-	void printall(); //not done
+	void printall(song_node *song_table[]);
 	
 	void shuffle(); //not done
 	
@@ -50,8 +50,6 @@
 /*  STUFF NEED TO DO
 Search for a song.
 Search for an artist.
-Print out all the songs of a certain artist
-Print out the entire library.
 Shuffle - print out a series of randomly chosen songs.
 Delete a song
 Delete all the nodes.

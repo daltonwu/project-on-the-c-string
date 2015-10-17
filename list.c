@@ -132,3 +132,9 @@ void printa(song_node *song_table[]) {
 		front = front->next;
 	}
 }
+
+void printall(song_node *song_table[]) {
+	int i = 26;
+	while (i--)
+		print_list(song_table[25-i]);
+}

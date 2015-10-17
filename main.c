@@ -18,7 +18,8 @@ int main() {
 	//print_list(table[0]);
 	//print_list(table[1]);
 	//printl(table);
-	printa(table);
+	//printa(table);
+	//printall(table);
 
 /*
 	printf("\nempty table\n");
