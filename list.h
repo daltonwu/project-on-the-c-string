@@ -27,8 +27,10 @@
 	song_node *free_list(song_node *front);
 
 	char * str_lower(char * input);
+
+	void preload(song_node *song_table[]);
 	
-	void add_song(song_node *table[]);
+	void add_song(song_node *song_table[]);
 	
 	song_node *song_search(char *song_name); //not done
 	
@@ -40,7 +42,7 @@
 	
 	void printall(song_node *song_table[]);
 	
-	void shuffle(); //not done
+	void shuffle(song_node *song_table[]); 
 	
 	void del_song(char *song_name, char *artist_name); //not done
 	
@@ -50,7 +52,6 @@
 /*  STUFF NEED TO DO
 Search for a song.
 Search for an artist.
-Shuffle - print out a series of randomly chosen songs.
 Delete a song
 Delete all the nodes.
 */
