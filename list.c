@@ -172,6 +172,15 @@ void shuffle(song_node *song_table[]) {
 	}
 }
 
+void del_song(song_node *song_table[]) {
+	
+}
+
+void del_all(song_node *song_table[]) {
+	int i = 26;
+	while (i--)
+		song_table[i] = free_list(song_table[i]);
+}
 
 
 void preload(song_node *song_table[]) { //15 more suggestions?

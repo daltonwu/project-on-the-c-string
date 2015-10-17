@@ -27,10 +27,10 @@ int main() {
 	//printl(table);
 	//printa(table);
 	printall(table);
-	shuffle(table);
-	shuffle(table);
-	shuffle(table);
-	shuffle(table);
+	// shuffle(table);
+	// shuffle(table);
+	// shuffle(table);
+	// shuffle(table);
 
 /*
 	printf("\nempty table\n");
@@ -85,8 +85,10 @@ int main() {
 	print_list(table[0]);
 */
 	printf("\nemancipation‼\n");
-	table[0] = free_list(table[0]);
-	print_list(table[0]);
+
+	del_all(table);
+
+	printall(table);
 
 	return 0;
 }

@@ -44,14 +44,13 @@
 	
 	void shuffle(song_node *song_table[]); 
 	
-	void del_song(char *song_name, char *artist_name); //not done
+	void del_song(song_node *song_table[]); //not done
 	
-	void del_all(); // DROP table; //not done
+	void del_all(song_node *song_table[]); 
 #endif
 
 /*  STUFF NEED TO DO
 Search for a song.
 Search for an artist.
 Delete a song
-Delete all the nodes.
 */
