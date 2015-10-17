@@ -5,17 +5,28 @@
 
 int main() {
 	song_node *table[26];
-	table[0] = (song_node*)malloc(sizeof(song_node)); //what if i malloc it...
-	table[0] = 0;
+	int table_ini = 0;
+	for (table_ini; table_ini < 26; table_ini++) {
+		table[table_ini] = (song_node*)malloc(sizeof(song_node)); //what if i malloc it...
+		table[table_ini] = 0;
+	}
+
+/*
+	add_song(table);
+	add_song(table);
+	print_list(table[0]);
+	print_list(table[1]);
+*/
+
 /*
 	printf("\nempty table\n");
 	print_list(table[0]);
-*/
+
 	
 	table[0] = insert_front(table[0],"piano concerto no.2, op.18", "rachmaninoff");
-/*	printf("\ninsert one song to front\n");
+	printf("\ninsert one song to front\n");
 	print_list(table[0]);
-*/	
+
 
 	table[0] = insert(table[0],"wildest dreams", "taylor swift");
 	table[0] = insert(table[0],"staying alive", "bee gees");
@@ -47,14 +58,13 @@ int main() {
 	artist_search = find_artist(table[0],"taylor slow");
 	print_node(artist_search);
 	printf("\n");
-*/
-	printf("\nrandom node??? WHY IS IT THE SAME THING\n");
+
+	printf("\nrandom node\n");
 	srand(time(NULL));
 	print_node(random_song(table[0]));
 	print_node(random_song(table[0]));
 	print_node(random_song(table[0]));
 
-/*
 	printf("\nremoving songs\n");
 	table[0] = remove_song(table[0], "violin concerto");
 	table[0] = remove_song(table[0], "too much heavens");

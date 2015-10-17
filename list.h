@@ -26,7 +26,7 @@
 	
 	song_node *free_list(song_node *front);
 	
-	void add_song(song_node *table, char *song_name, char *artist_name);
+	void add_song(song_node *table[]);
 	
 	song_node *song_search(char *song_name);
 	

@@ -67,9 +67,7 @@ int length(song_node *front) {
 
 song_node *random_song(song_node *front) {
 	int size = length(front);
-	
 	int i = rand() % size;
-	printf("%d\n", i);
 	while(i--) {
 		front = front->next;
 	}
@@ -90,20 +88,20 @@ song_node *remove_song(song_node *front, char *song_name) {
 }
 
 song_node *free_list(song_node *front) {
-	if(front->next) {
+	if(front&&front->next) {
 		front->next = free_list(front->next);
 	}
 	free(front);
 	return NULL;
 }
 
-void add_song(song_node *table, char *song_name, char *artist_name) {
-	song_node *front = table[*artist_name - 'a'];
-	
-	while(front && strcasecmp(front->name, artist_name) < 0) {
-		front = front->next;
-	}
-	
-	song_node *new;
-	new->name
+void add_song(song_node * song_table[]) {
+	char song_name[256];
+	char artist_name[256];
+	printf("\nsong name: \n");
+	scanf(" %[^\n]s",song_name); //reads space in string. source: stackoverflow
+	printf("\nartist name: \n");
+	scanf(" %[^\n]s",artist_name); //reads space in string. source: stackoverflow
+	song_table[*artist_name - 'a'] = insert(song_table[*artist_name - 'a'],song_name,artist_name);
 }
+
