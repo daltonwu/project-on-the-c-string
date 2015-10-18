@@ -22,20 +22,22 @@ int main() {
 	// add_song(table);
 	// add_song(table);
 	// add_song(table);
-	//print_list(table[0]);
-	//print_list(table[1]);
-	//printl(table);
-	printall(table);
+	// print_list(table[0]);
+	// print_list(table[1]);
+	// printl(table);
+	// printall(table);
 	// del_song(table);
 	// del_song(table);
 	// del_song(table);
 	// printall(table);
-	//song_search(table);
-	//printa(table);
+	// song_search(table);
+	// printa(table);
 	// shuffle(table);
 	// shuffle(table);
 	// shuffle(table);
 	// shuffle(table);
+
+	
 
 
 	printf("\nemancipation‼\n");
@@ -43,6 +45,8 @@ int main() {
 	del_all(table);
 
 	printall(table);
+
+
 
 	return 0;
 }

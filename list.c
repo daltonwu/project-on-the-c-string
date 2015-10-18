@@ -35,7 +35,7 @@ song_node *insert(song_node *front, char *song_name, char *artist_name) {
 		strcpy(new->artist, artist_name);
 		return new;
 	}
-	else if(strcasecmp(front->artist, artist_name) < 0) { //after front
+	else if(strcmp(front->artist, artist_name) < 0 || strcmp(front->name, song_name) < 0) { //after front
 		front->next = insert(front->next, song_name,artist_name);
 		return front;
 	}
@@ -199,13 +199,15 @@ void shuffle(song_node *song_table[]) {
 }
 
 void del_song(song_node *song_table[]) {
-	char input[256];
+	char artist_input[256];
+	char song_input[256];
+	printf("Artist name: \n");
+	scanf(" %[^\n]s", artist_input);
 	printf("Song name: \n");
-	scanf(" %[^\n]s", input);
-	char * song_name = str_lower(input);
-	int i = 26;
-	while (i--)
-		song_table[i] = remove_song(song_table[i],song_name);
+	scanf(" %[^\n]s", song_input);
+	char * song_name = str_lower(song_input);
+	char * artist_name = str_lower(artist_input);
+	song_table[*artist_name-'a'] = remove_song(song_table[*artist_name-'a'],song_name);
 }
 
 void del_all(song_node *song_table[]) {
@@ -217,8 +219,8 @@ void del_all(song_node *song_table[]) {
 
 void preload(song_node *song_table[]) { //15 more suggestions?
 	song_table['t'-'a'] = insert(song_table['t'-'a'],"wildest dreams", "taylor swift");
-	song_table['b'-'a'] = insert(song_table['b'-'a'],"staying alive", "bee gees");
 	song_table['b'-'a'] = insert(song_table['b'-'a'],"too much heaven", "bee gees");
+	song_table['b'-'a'] = insert(song_table['b'-'a'],"staying alive", "bee gees");
 	song_table['s'-'a'] = insert(song_table['s'-'a'],"violin sonata in g minor, d.408", "schubert");
 	song_table['t'-'a'] = insert(song_table['t'-'a'],"glad you came","the wanted");
 	song_table['c'-'a'] = insert(song_table['c'-'a'],"viva la vida","coldplay");
