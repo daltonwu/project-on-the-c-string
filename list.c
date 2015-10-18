@@ -231,8 +231,8 @@ void del_all(song_node *song_table[]) {
 void preload(song_node *song_table[]) { //15 more suggestions?
 	song_table['t'-'a'] = insert(song_table['t'-'a'],"wildest dreams", "taylor swift");
 	song_table['b'-'a'] = insert(song_table['b'-'a'],"too much heaven", "bee gees");
+	song_table['b'-'a'] = insert(song_table['b'-'a'],"how deep is your love", "bee gees");
 	song_table['b'-'a'] = insert(song_table['b'-'a'],"staying alive", "bee gees");
-	song_table['s'-'a'] = insert(song_table['s'-'a'],"violin sonata in g minor, d.408", "schubert");
 	song_table['t'-'a'] = insert(song_table['t'-'a'],"glad you came","the wanted");
 	song_table['c'-'a'] = insert(song_table['c'-'a'],"viva la vida","coldplay");
 	song_table['c'-'a'] = insert(song_table['c'-'a'],"the scientist","coldplay");
