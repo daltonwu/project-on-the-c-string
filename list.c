@@ -75,15 +75,15 @@ song_node *random_song(song_node *front) {
 	return front;
 }
 
-song_node *remove_song(song_node *front, char *song_name) {
+song_node *remove_song(song_node *front, char *song_name, char * artist_name) {
 	if (front) {
-		if (!strcmp(front->name,song_name)) {
+		if (!strcmp(front->name,song_name)&&!strcmp(front->artist,artist_name)) {
 			song_node * tmp = front->next;
 			free(front);
 			return tmp;
 		}
 		else
-			front->next = remove_song(front->next,song_name);
+			front->next = remove_song(front->next,song_name,artist_name);
 	}
 	return front;
 }
@@ -111,14 +111,20 @@ void add_song(song_node * song_table[]) {
 	scanf(" %[^\n]s",song_name); //reads space in string. source: stackoverflow
 	printf("\nArtist name: \n");
 	scanf(" %[^\n]s",artist_name);
-	song_table[*artist_name - 'a'] = insert(song_table[*artist_name - 'a'],str_lower(song_name),str_lower(artist_name));
+	if ((*artist_name - 'a') >= 0 && (*artist_name - 'a') < 26) {
+		song_table[*artist_name - 'a'] = insert(song_table[*artist_name - 'a'],str_lower(song_name),str_lower(artist_name));
+		printf("Song added.\n");
+	}
 }
 
 void printl(song_node *song_table[]) {
 	char input[256];
 	printf("Letter: \n");
 	scanf("%s",input);
-	print_list(song_table[tolower(*input) - 'a']);
+	if ((*input - 'a' >= 0 && (*input - 'a') < 26)) {
+		printf("Search results:\n");
+		print_list(song_table[tolower(*input) - 'a']);
+	}
 }
 
 
@@ -129,6 +135,7 @@ void *song_search(song_node *song_table[]) {
 	char * song_name = str_lower(input);
 	int i = 0;
 	song_node * front = song_table[i];
+	printf("Search results:\n");
 	while (i<26) {
 		while (front) {
 			front = find_song(front, song_name);
@@ -153,6 +160,7 @@ void printa(song_node *song_table[]) {
 	scanf(" %[^\n]s", input);
 	char * artist_name = str_lower(input);
 	song_node * front = artist_search(song_table, artist_name);
+	printf("Search results:\n");
 	while (front && !strncmp(front->artist,artist_name,strlen(artist_name))) {
 		print_node(front);
 		front = front->next;
@@ -161,6 +169,7 @@ void printa(song_node *song_table[]) {
 
 void printall(song_node *song_table[]) {
 	int i = 26;
+	printf("Search results:\n");
 	while (i--)
 		print_list(song_table[25-i]);
 }
@@ -182,8 +191,9 @@ void shuffle(song_node *song_table[]) {
 	}
 	i=0;
 	song_node * front = song_table[i];
-	while (!front) 
-		front = song_table[(++i)%26];
+	printf("Search results:\n");
+	while (!front&&i<26) 
+		front = song_table[++i];
 	while (num) {
 		int prob = rand() % sum;
 		if (prob < num) {
@@ -207,7 +217,8 @@ void del_song(song_node *song_table[]) {
 	scanf(" %[^\n]s", song_input);
 	char * song_name = str_lower(song_input);
 	char * artist_name = str_lower(artist_input);
-	song_table[*artist_name-'a'] = remove_song(song_table[*artist_name-'a'],song_name);
+	if ((*artist_name - 'a') >= 0 && (*artist_name - 'a') < 26)
+		song_table[*artist_name-'a'] = remove_song(song_table[*artist_name-'a'],song_name,artist_name);
 }
 
 void del_all(song_node *song_table[]) {

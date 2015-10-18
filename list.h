@@ -22,7 +22,7 @@
 	
 	song_node *random_song(song_node *front);
 	
-	song_node *remove_song(song_node *front, char *song_name);
+	song_node *remove_song(song_node *front, char *song_name, char * artist_name);
 	
 	song_node *free_list(song_node *front);
 
