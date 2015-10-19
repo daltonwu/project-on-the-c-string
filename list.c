@@ -106,16 +106,16 @@ char *str_lower(char * input) { //converts to lowercase
 }
 
 void add_song(song_node * song_table[]) {
-	char song_name[256];
-	char artist_name[256];
+	char songname[256];
+	char artistname[256];
 	
 	printf("\nSong name: ");
-	scanf(" %[^\n]s", song_name); //reads space in string. source: stackoverflow
-	song_name = str_lower(song_name);
+	scanf(" %[^\n]s", songname); //reads space in string. source: stackoverflow
+	char *song_name = str_lower(songname);
 	
 	printf("\nArtist name: \n");
-	scanf(" %[^\n]s", artist_name);
-	artist_name = str_lower(artist_name);
+	scanf(" %[^\n]s", artistname);
+	char *artist_name = str_lower(artistname);
 	
 	if((*artist_name - 'a') >= 0 && (*artist_name - 'a') < 26) {
 		song_table[*artist_name - 'a'] = insert(song_table[*artist_name - 'a'], song_name, artist_name);
@@ -263,7 +263,7 @@ void preload(song_node *song_table[]) { //15 more suggestions?
 	song_table['b'-'a'] = insert(song_table['b'-'a'],"piano sonata no.21","beethoven");
 	song_table['c'-'a'] = insert(song_table['c'-'a'],"scherzo no.1", "chopin");
 	song_table['s'-'a'] = insert(song_table['s'-'a'],"ave maria", "schubert");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
+	song_table['l'-'a'] = insert(song_table['l'-'a'],"paganini etude no.6", "liszt");
+	song_table['b'-'a'] = insert(song_table['b'-'a'],"waltz in a-flat major, op.39, no.15", "brahms");
+	song_table['d'-'a'] = insert(song_table['d'-'a'],"new world symphony", "dvorak");
 }
