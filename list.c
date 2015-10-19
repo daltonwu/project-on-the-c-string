@@ -5,6 +5,7 @@
 
 // O say can you C 
 //.......dalton plz
+// C what I did there?
 
 void print_list(song_node *front) {
 	if(front) { 
@@ -96,7 +97,7 @@ song_node *free_list(song_node *front) {
 	return NULL;
 }
 
-char * str_lower(char * input) { //converts to lowercase
+char *str_lower(char * input) { //converts to lowercase
 	int i = 0;
 	for (i;input[i];i++) {
 		input[i]=tolower(input[i]); //source: stackoverflow
@@ -107,12 +108,17 @@ char * str_lower(char * input) { //converts to lowercase
 void add_song(song_node * song_table[]) {
 	char song_name[256];
 	char artist_name[256];
+	
 	printf("\nSong name: ");
-	scanf(" %[^\n]s",song_name); //reads space in string. source: stackoverflow
+	scanf(" %[^\n]s", song_name); //reads space in string. source: stackoverflow
+	song_name = str_lower(song_name);
+	
 	printf("\nArtist name: \n");
-	scanf(" %[^\n]s",artist_name);
-	if ((*artist_name - 'a') >= 0 && (*artist_name - 'a') < 26) {
-		song_table[*artist_name - 'a'] = insert(song_table[*artist_name - 'a'],str_lower(song_name),str_lower(artist_name));
+	scanf(" %[^\n]s", artist_name);
+	artist_name = str_lower(artist_name);
+	
+	if((*artist_name - 'a') >= 0 && (*artist_name - 'a') < 26) {
+		song_table[*artist_name - 'a'] = insert(song_table[*artist_name - 'a'], song_name, artist_name);
 		printf("Song added.\n");
 	}
 }
@@ -244,19 +250,20 @@ void preload(song_node *song_table[]) { //15 more suggestions?
 	song_table['m'-'a'] = insert(song_table['m'-'a'],"payphone","maroon 5");
 	song_table['i'-'a'] = insert(song_table['i'-'a'],"let it go","idina menzel");
 	song_table['z'-'a'] = insert(song_table['z'-'a'],"the end","ze end");
-/*	song_table[''-'a'] = insert(song_table[''-'a'],"","");
+	
+	song_table['a'-'a'] = insert(song_table['a'-'a'],"iberia", "albeniz");
+	song_table['f'-'a'] = insert(song_table['f'-'a'],"requiem","faure");
+	song_table['h'-'a'] = insert(song_table['h'-'a'],"music for the royal fireworks","handel");
+	song_table['k'-'a'] = insert(song_table['k'-'a'],"the comedians", "kabalevsky");
+	song_table['p'-'a'] = insert(song_table['p'-'a'],"dance of the knights", "prokofiev");
+	song_table['r'-'a'] = insert(song_table['r'-'a'],"piano concerto no.2, op.18", "rachmaninoff");
+	song_table['s'-'a'] = insert(song_table['s'-'a'],"jazz-like partita", "schulhoff");
+	song_table['t'-'a'] = insert(song_table['t'-'a'],"1812 overture", "tchaikovsky");
+	song_table['w'-'a'] = insert(song_table['w'-'a'],"the ring of the nibelung", "wagner");
+	song_table['b'-'a'] = insert(song_table['b'-'a'],"piano sonata no.21","beethoven");
+	song_table['c'-'a'] = insert(song_table['c'-'a'],"scherzo no.1", "chopin");
+	song_table['s'-'a'] = insert(song_table['s'-'a'],"ave maria", "schubert");
 	song_table[''-'a'] = insert(song_table[''-'a'],"","");
 	song_table[''-'a'] = insert(song_table[''-'a'],"","");
 	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");
-	song_table[''-'a'] = insert(song_table[''-'a'],"","");*/
 }
