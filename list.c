@@ -127,9 +127,10 @@ void printl(song_node *song_table[]) {
 	char input[256];
 	printf("Letter: \n");
 	scanf("%s",input);
-	if ((*input - 'a' >= 0 && (*input - 'a') < 26)) {
+	char * letter = str_lower(input);
+	if ((*letter - 'a' >= 0 && (*letter - 'a') < 26)) {
 		printf("Search results:\n");
-		print_list(song_table[tolower(*input) - 'a']);
+		print_list(song_table[*letter - 'a']);
 	}
 }
 
